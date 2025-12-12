@@ -14,6 +14,114 @@ document.querySelectorAll('.flip-card').forEach(card => {
     card.classList.toggle('flipped');
   });
 });
+// ===== CALENDRIER MENSUEL AGENDA =====
+function initMonthlyCalendar() {
+  const calendarEl = document.querySelector('.calendar');
+  const eventsDataList = document.getElementById('eventsData');
+  if (!calendarEl || !eventsDataList) return;
+
+  const monthYearEl = document.getElementById('calendarMonthYear');
+  const gridEl = calendarEl.querySelector('.calendar-grid');
+  const prevBtn = document.getElementById('prevMonth');
+  const nextBtn = document.getElementById('nextMonth');
+
+  const eventDetail = document.getElementById('eventDetail');
+  const eventTitle = document.getElementById('eventTitle');
+  const eventMeta = document.getElementById('eventMeta');
+  const eventDescription = document.getElementById('eventDescription');
+  const eventGoogleLink = document.getElementById('eventGoogleLink');
+
+  const events = Array.from(eventsDataList.querySelectorAll('.event-item')).map(li => ({
+    date: li.dataset.date,   // YYYY-MM-DD
+    time: li.dataset.time || '00:00',
+    end: li.dataset.end || '',
+    city: li.dataset.city || '',
+    title: li.dataset.title || '',
+    description: li.dataset.description || ''
+  }));
+
+  let current = new Date();
+  current.setDate(1);
+
+  function renderCalendar() {
+    const year = current.getFullYear();
+    const month = current.getMonth(); // 0-11
+
+    const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    monthYearEl.textContent = `${monthNames[month]} ${year}`;
+
+    // Nettoie les anciennes cases jours (on garde la première ligne avec .dow)
+    gridEl.querySelectorAll('.calendar-day').forEach(d => d.remove());
+
+    const firstDay = new Date(year, month, 1);
+    const startingWeekday = (firstDay.getDay() + 6) % 7; // Lundi=0
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    // Cases vides avant le 1er
+    for (let i = 0; i < startingWeekday; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'calendar-day';
+      gridEl.appendChild(empty);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const cell = document.createElement('div');
+      cell.className = 'calendar-day';
+
+      const num = document.createElement('div');
+      num.className = 'calendar-day-number';
+      num.textContent = day;
+      cell.appendChild(num);
+
+      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+      events
+        .filter(ev => ev.date === dateStr)
+        .forEach(ev => {
+          const chip = document.createElement('div');
+          chip.className = 'calendar-event';
+          chip.textContent = ev.title || 'Événement';
+          chip.addEventListener('click', () => showEvent(ev));
+          cell.appendChild(chip);
+        });
+
+      gridEl.appendChild(cell);
+    }
+  }
+
+  function showEvent(ev) {
+    if (!eventDetail) return;
+    eventDetail.style.display = 'block';
+    eventTitle.textContent = ev.title || 'Événement';
+    const metaParts = [];
+    if (ev.date) metaParts.push(ev.date);
+    if (ev.time) metaParts.push(`à ${ev.time}`);
+    if (ev.city) metaParts.push(ev.city);
+    eventMeta.textContent = metaParts.join(' – ');
+    eventDescription.textContent = ev.description || '';
+
+    // Lien Google Agenda
+    const start = new Date(`${ev.date}T${ev.time || '00:00'}:00`);
+    let end;
+    if (ev.end) {
+      end = new Date(`${ev.date}T${ev.end}:00`);
+    } else {
+      end = new Date(start.getTime() + 2 * 60 * 60 * 1000); // +2h par défaut
+    }
+
+    function formatForGCal(d) {
+      return d.toISOString().replace(/-|:|\\.\\d\\d\\d/g, '');
+    }
+
+    const startStr = formatForGCal(start);
+    const endStr = formatForGCal(end);
+
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: ev.title,
+      dates: `${startStr}/${endStr}`,
+      details: ev.description,
+      location: ev.city
 
 // Gestion des onglets (univers + merch)
 document.querySelectorAll('.tabs').forEach(tabContainer => {
@@ -37,6 +145,63 @@ document.querySelectorAll('.tabs').forEach(tabContainer => {
       if (panel) panel.classList.add('active');
     });
   });
+});
+// ========== AGENDA / PROCHAIN ÉVÉNEMENT ==========
+
+async function loadNextEvent() {
+  const nextEventText = document.getElementById('nextEventText');
+  if (!nextEventText) return; // ne tourne que sur la home
+
+  try {
+    const res = await fetch('agenda.html');
+    const html = await res.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const items = Array.from(doc.querySelectorAll('.event-item'));
+    if (items.length === 0) {
+      nextEventText.textContent = 'Aucun événement à venir n’est renseigné pour le moment.';
+      return;
+    }
+
+    const now = new Date();
+    let best = null;
+    let bestDate = null;
+
+    items.forEach(li => {
+      const dateStr = li.getAttribute('data-date');
+      const timeStr = li.getAttribute('data-time') || '00:00';
+      if (!dateStr) return;
+
+      const date = new Date(dateStr + 'T' + timeStr + ':00');
+      if (isNaN(date.getTime()) || date < now) return;
+
+      if (!bestDate || date < bestDate) {
+        bestDate = date;
+        best = li;
+      }
+    });
+
+    if (!best) {
+      nextEventText.textContent = 'Aucun événement à venir n’est renseigné pour le moment.';
+      return;
+    }
+
+    const title = best.querySelector('strong')?.textContent || 'Événement';
+    const city = best.getAttribute('data-city') || '';
+    const dateStr = best.getAttribute('data-date');
+    const timeStr = best.getAttribute('data-time') || '';
+
+    nextEventText.textContent =
+      `${title} – ${dateStr} ${timeStr ? 'à ' + timeStr : ''}${city ? ' – ' + city : ''}`;
+  } catch (e) {
+    nextEventText.textContent = 'Impossible de charger le prochain événement pour le moment.';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadNextEvent();
 });
 
 // ===== QUIZ ARBRE À 5 ÉTAGES =====
