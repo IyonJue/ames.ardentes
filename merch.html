@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///C:/Users/imane/Desktop/site%20roman/merch.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Âmes ardentes – La Braise de l’insoumission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Site officiel de l&#39;univers d&#39;Âmes ardentes : la Stare, ses peuples, ses personnages, le merch officiel et les bonus.">
+
+  <!-- Polices : manuscrite + titres + texte -->
+  <link rel="stylesheet" href="./merch_files/css2">
+
+  <!-- Feuille de style -->
+  <link rel="stylesheet" href="./merch_files/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:&#39;smooth&#39;})">
+        <div class="nav-logo-mark"><img src="./merch_files/nav-logo-mark.png" alt="logo"></div>
+        <div class="nav-logo-text">Âmes ardentes </div>
+      </div>
+      <button class="nav-menu-toggle" type="button" id="menuToggle">Menu</button>
+      <nav>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/index.html">Accueil</a>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/univers.html">Univers</a>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/personnages.html">Personnages</a>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/voc-quiz.html">Voc &amp; quiz</a>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/merch.html">Merch officiel</a>
+  	<a href="file:///C:/Users/imane/Desktop/site%20roman/fanblog.html">Fanblog</a><a href="file:///C:/Users/imane/Desktop/site%20roman/contact.html">Contact</a>
+</nav></div></header>
+  <!-- header commun -->
+
+  <main>
+<section id="merch-shop">
+  <h2 class="section-title-frame">Boutique officielle</h2>
+
+  <!-- GRID PRODUITS -->
+  <div class="grid-3" id="productsGrid">
+    <!-- Exemple d’un produit -->
+    <article class="card card-tilt product"
+             data-id="poster-elfe"
+             data-name="Poster A3 - Elfe"
+             data-price="15">
+      <span class="pill">Nouveauté</span>
+      <h3>Poster A3 – Elfe</h3>
+      <p>Imprimé haute qualité, signé.</p>
+      <p class="price">15€</p>
+      <button class="btn-primary add-to-cart">Ajouter au panier</button>
+    </article>
+
+    <!-- Duplique ce <article> pour chaque produit
+         en changeant id, name, price et contenu -->
+  </div>
+
+  <!-- PANIER -->
+  <div class="panel-merch" id="cartPanel" style="margin-top:1.8rem;">
+    <h3>Panier</h3>
+    <p class="small">Les données sont stockées sur ton navigateur. Aucun paiement en ligne réel n’est traité ici.</p>
+
+    <div id="cartItems"></div>
+
+    <p id="cartTotal" style="margin-top:0.6rem;"></p>
+
+    <button id="clearCartBtn" class="btn-ghost" type="button">Vider le panier</button>
+  </div>
+
+  <!-- CHECKOUT / COMMANDE -->
+  <div class="panel-merch" id="checkoutPanel" style="margin-top:1.8rem;">
+    <h3>Passer commande</h3>
+    <p class="small">Remplis ce formulaire pour recevoir un récap par mail (ou le copier/coller pour Instagram, etc.).</p>
+
+    <form id="checkoutForm">
+      <div class="grid-3">
+        <div class="form-group">
+          <label for="customerName">Nom complet</label>
+          <input type="text" id="customerName" name="customerName" required>
+        </div>
+        <div class="form-group">
+          <label for="customerEmail">Email</label>
+          <input type="email" id="customerEmail" name="customerEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="customerAddress">Adresse postale</label>
+          <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top:1rem;">
+        Générer ma demande de commande
+      </button>
+    </form>
+
+    <div id="orderSummary" class="quiz-result" style="margin-top:1rem;"></div>
+  </div>
+</section>
+
+    <section id="merch" class="theme-humains">
+      <h2><span class="section-title-frame">Merch officiel</span></h2>
+      <p>
+        Sélection d’articles inspirés de l’univers d’<em>Âmes ardentes</em>. Les liens « Acheter » peuvent pointer vers
+        ta boutique (Etsy, Gumroad, Hello Éditions, etc.). [web:54]
+      </p>
+
+      <div class="tabs tabs-merch">
+        <button class="tab-btn active" data-tab="artprints">Art prints</button>
+        <button class="tab-btn" data-tab="papeterie">Papeterie</button>
+        <button class="tab-btn" data-tab="cosplay">Cosplay &amp; fandom</button>
+      </div>
+
+      <div id="tab-artprints" class="tab-panel panel-merch active">
+        <div class="grid-3">
+          <article class="card card-tilt product">
+            <img src="file:///C:/Users/imane/Desktop/site%20roman/image0000011.jpg" alt="Carte de la Stare">
+            <h3>Carte de la Stare</h3>
+            <p>Affiche couleur de la carte officielle.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+
+          <article class="card card-tilt product">
+            <img src="file:///C:/Users/imane/Desktop/site%20roman/9782386277214_COV3.jpg" alt="Couverture">
+            <h3>Affiche couverture</h3>
+            <p>Poster de la couverture du tome I.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+
+          <article class="card card-tilt product">
+            <img src="file:///C:/Users/imane/Desktop/site%20roman/5-free.jpg" alt="Art Cydia &amp; Licya">
+            <h3>Duo Cydia &amp; Licya</h3>
+            <p>Art print des deux sœurs.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+        </div>
+      </div>
+
+      <div id="tab-papeterie" class="tab-panel panel-merch">
+        <!-- même structure product -->
+      </div>
+
+      <div id="tab-cosplay" class="tab-panel panel-merch">
+        <!-- produits cosplay / packs -->
+      </div>
+    </section>
+  </main>
+
+  <footer>…</footer>
+  <script src="./merch_files/site.js"></script>
+
+
+</body></html>

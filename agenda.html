@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/imane/Desktop/site%20roman/agenda.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Agenda – Âmes ardentes</title>
+  <link rel="stylesheet" href="./agenda_files/style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      <span class="nav-logo-text">ÂMES ARDENTES</span>
+    </div>
+    <button id="menuToggle" class="nav-menu-toggle">Menu</button>
+    <nav id="mainNav">
+      <a href="file:///C:/Users/imane/Desktop/site%20roman/index.html">Accueil</a>
+      <a href="file:///C:/Users/imane/Desktop/site%20roman/univers.html">Univers</a>
+      <a href="file:///C:/Users/imane/Desktop/site%20roman/personnages.html">Personnages</a>
+      <a href="file:///C:/Users/imane/Desktop/site%20roman/merch.html">Boutique</a>
+      <a href="file:///C:/Users/imane/Desktop/site%20roman/agenda.html" class="nav-cta">Agenda événements</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2 class="section-title-frame">Agenda événements</h2>
+    <p>Renseigne ici toutes les dédicaces, salons et rencontres à venir.</p>
+
+    <div class="panel-merch">
+      <section>
+  <h2 class="section-title-frame">Agenda événements</h2>
+  <div id="calendar" class="calendar">
+    <div class="calendar-header">
+      <button id="prevMonth" class="btn-ghost">◀</button>
+      <div id="calendarMonthYear"></div>
+      <button id="nextMonth" class="btn-ghost">▶</button>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="dow">Lun</div><div class="dow">Mar</div><div class="dow">Mer</div>
+      <div class="dow">Jeu</div><div class="dow">Ven</div><div class="dow">Sam</div><div class="dow">Dim</div>
+      <!-- les cases jours seront générées en JS -->
+    </div>
+  </div>
+
+  <!-- Détail événement -->
+  <div id="eventDetail" class="event-detail panel-merch" style="margin-top:1.5rem; display:none;">
+    <h3 id="eventTitle"></h3>
+    <p id="eventMeta"></p>
+    <p id="eventDescription"></p>
+    <a id="eventGoogleLink" class="btn-primary" target="_blank" rel="noopener">
+      Ajouter à Google Agenda
+    </a>
+  </div>
+
+  <!-- Données événements (tu édites ici) -->
+  <ul id="eventsData" style="display:none;">
+    <li class="event-item" data-date="2025-12-20" data-time="14:00" data-end="16:00" data-city="Toulouse" data-title="Dédicace librairie Ombres Blanches" data-description="Rencontre, échanges et signatures autour d’Âmes ardentes.">
+    </li>
+
+    <li class="event-item" data-date="2026-01-15" data-time="10:00" data-end="18:00" data-city="Paris" data-title="Salon du livre imaginaire" data-description="Présence sur le stand, table ronde et dédicaces.">
+    </li>
+  </ul>
+</section>
+
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  © Âmes ardentes – Agenda des événements
+</footer>
+
+<script src="./agenda_files/site.js"></script>
+
+
+</body></html>
