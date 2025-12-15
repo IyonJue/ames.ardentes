@@ -14,6 +14,17 @@ document.querySelectorAll('.flip-card').forEach(card => {
     card.classList.toggle('flipped');
   });
 });
+
+document.querySelectorAll('[data-target]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const id = btn.dataset.target;
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 // ===== CALENDRIER MENSUEL AGENDA =====
 function initMonthlyCalendar() {
   const calendarEl = document.querySelector('.calendar');
@@ -373,3 +384,4 @@ function initTreeQuiz() {
 }
 
 document.addEventListener('DOMContentLoaded', initTreeQuiz);
+
