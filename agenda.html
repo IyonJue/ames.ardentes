@@ -6,22 +6,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="nav">
-    <div class="nav-logo">
-      <div class="nav-logo-mark"></div>
-      <span class="nav-logo-text">ÂMES ARDENTES</span>
+  <header>
+    <div class="nav">
+      <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:&#39;smooth&#39;})">
+        <div class="nav-logo-mark"><img src="./nav-logo-mark.png" alt="logo"></div>
+        <div class="nav-logo-text">Âmes ardentes </div>
+      </div>
+      <button class="nav-menu-toggle" type="button" id="menuToggle">Menu</button>
+      <nav>
+  	<a href="index.html">Accueil</a>
+  	<a href="univers.html">Univers</a>
+  	<a href="personnages.html">Personnages</a>
+  	<a href="voc-quiz.html">Voc &amp; quiz</a>
+  	<a href="merch.html">Merch officiel</a>
+  	<a href="agenda.html"class="nav-cta">Agenda événements</a><a href="fanblog.html">Fanblog</a><a href="contact.html">Contact</a>
+
+      </nav>
     </div>
-    <button id="menuToggle" class="nav-menu-toggle">Menu</button>
-    <nav id="mainNav">
-      <a href="index.html">Accueil</a>
-      <a href="univers.html">Univers</a>
-      <a href="personnages.html">Personnages</a>
-      <a href="merch.html">Boutique</a>
-      <a href="agenda.html" class="nav-cta">Agenda événements</a>
-    </nav>
-  </div>
-</header>
+  </header>
+
 
 <main>
   <section>
