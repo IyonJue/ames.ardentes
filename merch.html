@@ -14,19 +14,20 @@
 <body>
   <header>
     <div class="nav">
-      <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:&#39;smooth&#39;})">
+      <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
         <div class="nav-logo-mark"><img src="./nav-logo-mark.png" alt="logo"></div>
-        <div class="nav-logo-text">Âmes ardentes </div>
+        <div class="nav-logo-text">Âmes ardentes</div>
       </div>
       <button class="nav-menu-toggle" type="button" id="menuToggle">Menu</button>
       <nav>
-  	<a href="index.html">Accueil</a>
-  	<a href="univers.html">Univers</a>
-  	<a href="personnages.html">Personnages</a>
-  	<a href="voc-quiz.html">Voc &amp; quiz</a>
-  	<a href="merch.html"class="nav-cta">Merch officiel</a>
-  	<a href="agenda.html">Agenda événements</a><a href="fanblog.html">Fanblog</a><a href="contact.html">Contact</a>
-
+        <a href="index.html">Accueil</a>
+        <a href="univers.html">Univers</a>
+        <a href="personnages.html">Personnages</a>
+        <a href="voc-quiz.html">Voc &amp; quiz</a>
+        <a href="merch.html" class="nav-cta">Merch officiel</a>
+        <a href="agenda.html">Agenda événements</a>
+        <a href="fanblog.html">Fanblog</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -35,67 +36,22 @@
     <section id="merch-shop">
       <h2 class="section-title-frame">Boutique officielle</h2>
 
-      <div id="paypal-container-FRYXZB5RW635G"></div>
+      <div id="paypal-container-C5YWECN8ZZB7L"></div>
+      <script>
+        paypal.HostedButtons({
+          hostedButtonId: "C5YWECN8ZZB7L",
+        }).render("#paypal-container-C5YWECN8ZZB7L");
+      </script>
 
       <div class="grid-3" id="productsGrid">
-        <!-- ici tu mets tes <article> produits, pas "..." -->
+        <!-- tes <article> produits ici -->
       </div>
 
-      <!-- PANIER, CHECKOUT etc. -->
-    </section>
-
-
-
-    <section id="merch" class="theme-humains">
-      <h2><span class="section-title-frame">Merch officiel</span></h2>
-      <p>
-        Sélection d’articles inspirés de l’univers d’<em>Âmes ardentes</em>. Les liens « Acheter » peuvent pointer vers
-        ta boutique (Etsy, Gumroad, Hello Éditions, etc.). [web:54]
-      </p>
-
-      <div class="tabs tabs-merch">
-        <button class="tab-btn active" data-tab="artprints">Art prints</button>
-        <button class="tab-btn" data-tab="papeterie">Papeterie</button>
-        <button class="tab-btn" data-tab="cosplay">Cosplay &amp; fandom</button>
-      </div>
-
-      <div id="tab-artprints" class="tab-panel panel-merch active">
-        <div class="grid-3">
-          <article class="card card-tilt product">
-            <img src="image0000011.jpg" alt="Carte de la Stare">
-            <h3>Carte de la Stare</h3>
-            <p>Affiche couleur de la carte officielle.</p>
-            <button class="btn-primary product-btn">Acheter</button>
-          </article>
-
-          <article class="card card-tilt product">
-            <img src="9782386277214_COV3.jpg" alt="Couverture">
-            <h3>Affiche couverture</h3>
-            <p>Poster de la couverture du tome I.</p>
-            <button class="btn-primary product-btn">Acheter</button>
-          </article>
-
-          <article class="card card-tilt product">
-            <img src="5-free.jpg" alt="Art Cydia &amp; Licya">
-            <h3>Duo Cydia &amp; Licya</h3>
-            <p>Art print des deux sœurs.</p>
-            <button class="btn-primary product-btn">Acheter</button>
-          </article>
-        </div>
-      </div>
-
-      <div id="tab-papeterie" class="tab-panel panel-merch">
-        <!-- même structure product -->
-      </div>
-
-      <div id="tab-cosplay" class="tab-panel panel-merch">
-        <!-- produits cosplay / packs -->
-      </div>
+      <!-- PANIER + CHECKOUT ici -->
     </section>
   </main>
 
   <footer>…</footer>
   <script src="site.js"></script>
-
-
-</body></html>
+</body>
+</html>
