@@ -8,6 +8,9 @@
 
   <!-- Polices : manuscrite + titres + texte -->
   <link rel="stylesheet" href="css2">
+  <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
 
   <!-- Feuille de style -->
   <link rel="stylesheet" href="style.css">
@@ -32,7 +35,12 @@
     </div>
   </header>
   <!-- header commun -->
-
+<div id="paypal-container-C5YWECN8ZZB7L"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "C5YWECN8ZZB7L",
+  }).render("#paypal-container-C5YWECN8ZZB7L")
+</script>
   <main>
 <section id="merch-shop">
   <h2 class="section-title-frame">Boutique officielle</h2>
