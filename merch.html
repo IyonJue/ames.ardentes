@@ -34,11 +34,20 @@
       </nav>
     </div>
   </header>
-
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
   <main>
     <!-- BOUTIQUE + PAYPAL -->
     <section id="merch-shop">
       <h2 class="section-title-frame">Boutique officielle</h2>
+
+      <!-- Exemple : bouton PayPal pour un article -->
+      <div class="grid-3" id="productsGrid">
+        <article class="card card-tilt product">
+          <img src="image0000011.jpg" alt="Carte de la Stare">
+          <h3>Carte de la Stare</h3>
+          <p>Affiche couleur de la carte officielle.</p>
 
           <div id="paypal-container-FRYXZB5RW635G"></div>
           <script>
@@ -85,6 +94,17 @@
             </div>
           </div>
 
+          <button type="submit" class="btn-primary" style="margin-top:1rem;">
+            Générer ma demande de commande
+          </button>
+        </form>
+
+        <div id="orderSummary" class="quiz-result" style="margin-top:1rem;"></div>
+      </div>
+    </section>
+
+      </div>
+    </section>
   </main>
 
   <footer>…</footer>
