@@ -54,40 +54,12 @@
               console.error("PayPal SDK non chargé ou HostedButtons indisponible");
             }
           </script>
-        </article>
 
         <!-- Tu peux dupliquer d'autres <article> ici, avec ou sans PayPal -->
       </div>
 
-      <!-- PANIER -->
-      <div class="panel-merch" id="cartPanel" style="margin-top:1.8rem;">
-        <h3>Panier</h3>
-        <p class="small">Les données sont stockées sur ton navigateur. Aucun paiement en ligne réel n’est traité ici.</p>
-        <div id="cartItems"></div>
-        <p id="cartTotal" style="margin-top:0.6rem;"></p>
-        <button id="clearCartBtn" class="btn-ghost" type="button">Vider le panier</button>
-      </div>
-
-      <!-- CHECKOUT / COMMANDE -->
-      <div class="panel-merch" id="checkoutPanel" style="margin-top:1.8rem;">
-        <h3>Passer commande</h3>
-        <p class="small">Remplis ce formulaire pour recevoir un récap par mail (ou le copier/coller pour Instagram, etc.).</p>
-
-        <form id="checkoutForm">
-          <div class="grid-3">
-            <div class="form-group">
-              <label for="customerName">Nom complet</label>
-              <input type="text" id="customerName" name="customerName" required>
-            </div>
-            <div class="form-group">
-              <label for="customerEmail">Email</label>
-              <input type="email" id="customerEmail" name="customerEmail" required>
-            </div>
-            <div class="form-group">
-              <label for="customerAddress">Adresse postale</label>
-              <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
-            </div>
-          </div>
+      
+      
 
           <button type="submit" class="btn-primary" style="margin-top:1rem;">
             Générer ma demande de commande
