@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Site officiel de l'univers d'Âmes ardentes : la Stare, ses peuples, ses personnages, le merch officiel et les bonus.">
 
+  <!-- Polices -->
   <link rel="stylesheet" href="css2">
+  <!-- Feuille de style -->
   <link rel="stylesheet" href="style.css">
 
-  
-<<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-   </script>
-<head>
+  <!-- SDK PayPal (hosted buttons) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+</head>
 <body>
   <header>
     <div class="nav">
@@ -36,29 +36,117 @@
   </header>
 
   <main>
-    
-    <section id="univers" class="theme-humains">
+    <!-- BOUTIQUE + PAYPAL -->
+    <section id="merch-shop">
+      <h2 class="section-title-frame">Boutique officielle</h2>
 
-      <section id="merch-shop">
-    <h2 class="section-title-frame">Boutique officielle</h2>
-    <div id="paypal-container-FRYXZB5RW635G"></div>
-    <script>
-      paypal.HostedButtons({
-        hostedButtonId: "FRYXZB5RW635G",
-      }).render("#paypal-container-FRYXZB5RW635G")
-    </script>
-  </article>
+      <!-- Exemple : bouton PayPal pour un article -->
+      <div class="grid-3" id="productsGrid">
+        <article class="card card-tilt product">
+          <img src="image0000011.jpg" alt="Carte de la Stare">
+          <h3>Carte de la Stare</h3>
+          <p>Affiche couleur de la carte officielle.</p>
 
-    <div class="grid-3" id="productsGrid">
-      <!-- ici tes <article class="card ..."> produits -->
-    </div>
+          <div id="paypal-container-C5YWECN8ZZB7L"></div>
+          <script>
+            if (window.paypal && paypal.HostedButtons) {
+              paypal.HostedButtons({
+                hostedButtonId: "C5YWECN8ZZB7L",
+              }).render("#paypal-container-C5YWECN8ZZB7L");
+            } else {
+              console.error("PayPal SDK non chargé ou HostedButtons indisponible");
+            }
+          </script>
+        </article>
 
-    <!-- panier + formulaire... -->
-  </section>
-</main>
+        <!-- Tu peux dupliquer d'autres <article> ici, avec ou sans PayPal -->
+      </div>
 
+      <!-- PANIER -->
+      <div class="panel-merch" id="cartPanel" style="margin-top:1.8rem;">
+        <h3>Panier</h3>
+        <p class="small">Les données sont stockées sur ton navigateur. Aucun paiement en ligne réel n’est traité ici.</p>
+        <div id="cartItems"></div>
+        <p id="cartTotal" style="margin-top:0.6rem;"></p>
+        <button id="clearCartBtn" class="btn-ghost" type="button">Vider le panier</button>
+      </div>
 
-      <!-- PANIER + CHECKOUT ici -->
+      <!-- CHECKOUT / COMMANDE -->
+      <div class="panel-merch" id="checkoutPanel" style="margin-top:1.8rem;">
+        <h3>Passer commande</h3>
+        <p class="small">Remplis ce formulaire pour recevoir un récap par mail (ou le copier/coller pour Instagram, etc.).</p>
+
+        <form id="checkoutForm">
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="customerName">Nom complet</label>
+              <input type="text" id="customerName" name="customerName" required>
+            </div>
+            <div class="form-group">
+              <label for="customerEmail">Email</label>
+              <input type="email" id="customerEmail" name="customerEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="customerAddress">Adresse postale</label>
+              <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:1rem;">
+            Générer ma demande de commande
+          </button>
+        </form>
+
+        <div id="orderSummary" class="quiz-result" style="margin-top:1rem;"></div>
+      </div>
+    </section>
+
+    <!-- SECTION MERCH TABS -->
+    <section id="merch" class="theme-humains">
+      <h2><span class="section-title-frame">Merch officiel</span></h2>
+      <p>
+        Sélection d’articles inspirés de l’univers d’<em>Âmes ardentes</em>. Les liens « Acheter » peuvent pointer vers
+        ta boutique (Etsy, Gumroad, Hello Éditions, etc.).
+      </p>
+
+      <div class="tabs tabs-merch">
+        <button class="tab-btn active" data-tab="artprints">Art prints</button>
+        <button class="tab-btn" data-tab="papeterie">Papeterie</button>
+        <button class="tab-btn" data-tab="cosplay">Cosplay &amp; fandom</button>
+      </div>
+
+      <div id="tab-artprints" class="tab-panel panel-merch active">
+        <div class="grid-3">
+          <article class="card card-tilt product">
+            <img src="image0000011.jpg" alt="Carte de la Stare">
+            <h3>Carte de la Stare</h3>
+            <p>Affiche couleur de la carte officielle.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+
+          <article class="card card-tilt product">
+            <img src="9782386277214_COV3.jpg" alt="Couverture">
+            <h3>Affiche couverture</h3>
+            <p>Poster de la couverture du tome I.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+
+          <article class="card card-tilt product">
+            <img src="5-free.jpg" alt="Art Cydia &amp; Licya">
+            <h3>Duo Cydia &amp; Licya</h3>
+            <p>Art print des deux sœurs.</p>
+            <button class="btn-primary product-btn">Acheter</button>
+          </article>
+        </div>
+      </div>
+
+      <div id="tab-papeterie" class="tab-panel panel-merch">
+        <!-- même structure product -->
+      </div>
+
+      <div id="tab-cosplay" class="tab-panel panel-merch">
+        <!-- produits cosplay / packs -->
+      </div>
     </section>
   </main>
 
