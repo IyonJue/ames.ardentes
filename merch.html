@@ -21,12 +21,6 @@
   <header>
     <div class="nav">
       <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:&#39;smooth&#39;})">
-      <div id="paypal-container-FRYXZB5RW635G"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "FRYXZB5RW635G",
-  }).render("#paypal-container-FRYXZB5RW635G")
-</script>
         <div class="nav-logo-mark"><img src="./nav-logo-mark.png" alt="logo"></div>
         <div class="nav-logo-text">Âmes ardentes </div>
       </div>
@@ -54,18 +48,16 @@
   <h2 class="section-title-frame">Boutique officielle</h2>
 
   <!-- GRID PRODUITS -->
+<section id="merch-shop">
+  <h2 class="section-title-frame">Boutique officielle</h2>
+
+  <div id="paypal-container-FRYXZB5RW635G"></div>
+  <!-- ici ton bouton PayPal s'affichera -->
+
   <div class="grid-3" id="productsGrid">
-    <!-- Exemple d’un produit -->
-    <article class="card card-tilt product"
-             data-id="poster-elfe"
-             data-name="Poster A3 - Elfe"
-             data-price="15">
-      <span class="pill">Nouveauté</span>
-      <h3>Poster A3 – Elfe</h3>
-      <p>Imprimé haute qualité, signé.</p>
-      <p class="price">15€</p>
-      <button class="btn-primary add-to-cart">Ajouter au panier</button>
-    </article>
+    ...
+  </div>
+</section>
 
     <!-- Duplique ce <article> pour chaque produit
          en changeant id, name, price et contenu -->
