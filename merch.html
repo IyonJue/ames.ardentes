@@ -8,17 +8,24 @@
 
   <!-- Polices : manuscrite + titres + texte -->
   <link rel="stylesheet" href="css2">
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-</script></script>
+
 
   <!-- Feuille de style -->
   <link rel="stylesheet" href="style.css">
+  <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
 </head>
 <body>
   <header>
     <div class="nav">
       <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:&#39;smooth&#39;})">
+      <div id="paypal-container-FRYXZB5RW635G"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "FRYXZB5RW635G",
+  }).render("#paypal-container-FRYXZB5RW635G")
+</script>
         <div class="nav-logo-mark"><img src="./nav-logo-mark.png" alt="logo"></div>
         <div class="nav-logo-text">Âmes ardentes </div>
       </div>
