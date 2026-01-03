@@ -1,77 +1,104 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Âmes ardentes – La Braise de l’insoumission</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Site officiel de l'univers d'Âmes ardentes : la Stare, ses peuples, ses personnages, le merch officiel et les bonus.">
+.products-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
 
-  <!-- Polices -->
-  <link rel="stylesheet" href="css2">
-  <!-- Feuille de style -->
-  <link rel="stylesheet" href="style.css">
+/* Carte produit */
+.product-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 1.8rem;
+  background: #121010;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  color: #f7f2ea;
+}
 
-  <!-- SDK PayPal (hosted buttons) -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAfUOXTPNOTUjlpOrWDlw_f5a0YzhUVXflibi4CdQOT5foKmBj5FQVQ6yeLR5RXZRNCNHoXMQZl2sP-hI&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        <div class="nav-logo-mark"><img src="./nav-logo-mark.png" alt="logo"></div>
-        <div class="nav-logo-text">Âmes ardentes</div>
-      </div>
-      <button class="nav-menu-toggle" type="button" id="menuToggle">Menu</button>
-      <nav>
-        <a href="index.html">Accueil</a>
-        <a href="univers.html">Univers</a>
-        <a href="personnages.html">Personnages</a>
-        <a href="voc-quiz.html">Voc &amp; quiz</a>
-        <a href="merch.html" class="nav-cta">Merch officiel</a>
-        <a href="agenda.html">Agenda événements</a>
-        <a href="fanblog.html">Fanblog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+/* Galerie */
+.product-gallery {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-  <main>
-    <!-- BOUTIQUE + PAYPAL -->
-    <section id="merch-shop">
-      <h2 class="section-title-frame">Boutique officielle</h2>
+.product-image {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-      <!-- Exemple : bouton PayPal pour un article -->
-      <div class="grid-3" id="productsGrid">
-        
+.product-image.active {
+  display: block;
+}
 
-          <div id="paypal-container-FRYXZB5RW635G"></div>
-          <script>
-            if (window.paypal && paypal.HostedButtons) {
-              paypal.HostedButtons({
-                hostedButtonId: "FRYXZB5RW635G",
-              }).render("#paypal-container-FRYXZB5RW635G");
-            } else {
-              console.error("PayPal SDK non chargé ou HostedButtons indisponible");
-            }
-          </script>
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5,5,5,0.65);
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 999px;
+}
 
-        <!-- Tu peux dupliquer d'autres <article> ici, avec ou sans PayPal -->
-      </div>
+.gallery-prev { left: 0.6rem; }
+.gallery-next { right: 0.6rem; }
 
-      
-      
+/* Contenu produit */
+.product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
-          <button type="submit" class="btn-primary" style="margin-top:1rem;">
-            Générer ma demande de commande
-          </button>
-        </form>
+.product-title {
+  font-size: 1.4rem;
+  margin: 0;
+}
 
-        <div id="orderSummary" class="quiz-result" style="margin-top:1rem;"></div>
-      </div>
-    </section>
-  </main>
+.product-price {
+  font-weight: 700;
+  color: #f7c76b;
+  margin: 0.1rem 0;
+}
 
-  <footer>…</footer>
-  <script src="site.js"></script>
-</body>
-</html>
+.product-meta {
+  font-size: 0.9rem;
+  color: #c3b7a0;
+}
+
+.product-desc {
+  line-height: 1.5;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+.product-paypal {
+  margin-top: 0.8rem;
+}
+
+/* Bloc info */
+.panel-merch {
+  background: #1a1511;
+  color: #f7f2ea;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+}
+
+.merch-info {
+  list-style: disc;
+  padding-left: 1.3rem;
+  margin: 0.6rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+}
